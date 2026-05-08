@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "JDM · Import · Lifestyle",
+        "headline": "The Journey Is the Build.",
+        "subheadline": "From a right-hand-drive Skyline GT-T in Georgia to a GT-R — this is the real road. Motion Workz documents the builds, the lifestyle, and every mile in between. Merch funds the mission.",
+        "cta_primary_text": "Shop the Drop",
+        "cta_primary_url": "/collections/all",
+        "cta_secondary_text": "Watch Our Builds",
+        "cta_secondary_url": "/pages/builds"
+      }
+    },
+    "marquee": {
+      "type": "marquee-strip",
+      "settings": {
+        "text": "JDM Lifestyle | Real Builds | Import Scene | Georgia Car Culture | Driven Not Trailered | The Journey Is the Build"
+      }
+    },
+    "pillars": {
+      "type": "brand-pillars",
+      "settings": {}
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Gear Up.",
+        "subheading": "Every purchase fuels the next build, the next video, and the journey to the GT-R. Wear the brand. Support the mission. Keep it moving."
+      }
+    },
+    "builds": {
+      "type": "builds",
+      "settings": {}
+    },
+    "about": {
+      "type": "about",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "First Access to Every Drop"
+      }
+    }
+  },
+  "order": ["hero", "marquee", "pillars", "products", "builds", "about", "newsletter"]
+}
