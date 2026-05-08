@@ -1,0 +1,61 @@
+<section class="builds" id="builds">
+  <div class="builds-glow" aria-hidden="true"></div>
+  <div class="section-inner">
+    <p class="section-label">On the Channel</p>
+    <h2 class="section-title">Follow the <span class="red">Build.</span></h2>
+    <p class="section-sub">Subscribe on YouTube and follow on Instagram and TikTok for raw content from the Southeast car scene.</p>
+
+    <div class="builds-grid">
+      <div class="build-series">
+        <div class="series-num">01</div>
+        <div class="series-body">
+          <h3 class="series-name">{{ section.settings.series_1_title }}</h3>
+          <p class="series-desc">{{ section.settings.series_1_desc }}</p>
+        </div>
+      </div>
+      <div class="build-series">
+        <div class="series-num">02</div>
+        <div class="series-body">
+          <h3 class="series-name">{{ section.settings.series_2_title }}</h3>
+          <p class="series-desc">{{ section.settings.series_2_desc }}</p>
+        </div>
+      </div>
+      <div class="build-series">
+        <div class="series-num">03</div>
+        <div class="series-body">
+          <h3 class="series-name">{{ section.settings.series_3_title }}</h3>
+          <p class="series-desc">{{ section.settings.series_3_desc }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="builds-cta">
+      {%- if settings.social_youtube_url != blank -%}
+        <a href="{{ settings.social_youtube_url }}" class="btn btn-red btn-lg">YouTube — Subscribe</a>
+      {%- else -%}
+        <a href="#" class="btn btn-red btn-lg">YouTube — Subscribe</a>
+      {%- endif -%}
+      {%- if settings.social_instagram_url != blank -%}
+        <a href="{{ settings.social_instagram_url }}" class="btn btn-outline btn-lg">Instagram</a>
+      {%- endif -%}
+      {%- if settings.social_tiktok_url != blank -%}
+        <a href="{{ settings.social_tiktok_url }}" class="btn btn-outline btn-lg">TikTok</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Builds & Content",
+  "settings": [
+    { "type": "text", "id": "series_1_title", "label": "Series 1 name", "default": "Build Diaries" },
+    { "type": "textarea", "id": "series_1_desc", "label": "Series 1 description", "default": "Every mod, every setback, every win — raw and unfiltered. The GT-T build documented from day one." },
+    { "type": "text", "id": "series_2_title", "label": "Series 2 name", "default": "Drive Days" },
+    { "type": "textarea", "id": "series_2_desc", "label": "Series 2 description", "default": "Canyons, backroads, track days. Cars used as intended — the way they were always meant to be driven." },
+    { "type": "text", "id": "series_3_title", "label": "Series 3 name", "default": "Crew Builds" },
+    { "type": "textarea", "id": "series_3_desc", "label": "Series 3 description", "default": "Spotlighting friends and the Southeast scene. Average cars with real heart and real stories behind them." }
+  ],
+  "presets": [{ "name": "Builds & Content" }]
+}
+{% endschema %}

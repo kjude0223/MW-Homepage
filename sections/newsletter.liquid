@@ -1,0 +1,38 @@
+<section class="contact" id="newsletter">
+  <div class="section-inner contact-inner">
+    <div class="contact-gear-icon" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><use href="#gear-svg"/></svg>
+    </div>
+    <p class="section-label">Stay Connected</p>
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <p class="section-sub">{{ section.settings.subheading }}</p>
+
+    {%- form 'contact', id: 'newsletterForm', class: 'newsletter-form' -%}
+      <input type="hidden" name="contact[body]" value="Newsletter signup" />
+      {%- if form.posted_successfully? -%}
+        <p class="form-success">You&rsquo;re in! We&rsquo;ll hit your inbox on the next drop.</p>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p style="color:#CC1111;margin-bottom:12px;">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <div class="form-row">
+          <input type="text"  name="contact[name]"  placeholder="Your Name"  autocomplete="name" />
+          <input type="email" name="contact[email]" placeholder="Your Email" autocomplete="email" required />
+          <button type="submit" class="btn btn-red">Subscribe</button>
+        </div>
+        <p class="form-note">No spam. Unsubscribe anytime. We hate junk mail too.</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    { "type": "text",     "id": "heading",    "label": "Heading",    "default": "First Access to Every Drop" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Sign up for early access to new merch drops, build updates, and behind-the-scenes content before anyone else." }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

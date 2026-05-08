@@ -1,0 +1,71 @@
+<section class="pillars">
+  <div class="section-inner">
+    <div class="pillars-grid">
+
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="10"/>
+            <path d="M20 10V7M20 33v-3M10 20H7M33 20h-3"/>
+            <path d="M13 13l-2-2M29 29l-2-2M27 13l2-2M11 29l2-2"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">{{ section.settings.pillar_1_title }}</h3>
+        <p class="pillar-desc">{{ section.settings.pillar_1_desc }}</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="8" width="32" height="22" rx="3"/>
+            <path d="M16 30l-2 6M24 30l2 6M12 36h16"/>
+            <polygon points="17,14 26,19 17,24" fill="currentColor" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">{{ section.settings.pillar_2_title }}</h3>
+        <p class="pillar-desc">{{ section.settings.pillar_2_desc }}</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 12 L14 8 L18 12 Q20 15 22 12 L26 8 L32 12 L30 19 L26 17 L26 32 L14 32 L14 17 L10 19 Z"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">{{ section.settings.pillar_3_title }}</h3>
+        <p class="pillar-desc">{{ section.settings.pillar_3_desc }}</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="13" r="5"/>
+            <circle cx="26" cy="13" r="5"/>
+            <path d="M4 34c0-6 4.5-10 10-10M22 24c5.5 0 10 4 10 10"/>
+            <path d="M16 24c1.3-.3 2.7-.3 4 0"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">{{ section.settings.pillar_4_title }}</h3>
+        <p class="pillar-desc">{{ section.settings.pillar_4_desc }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Pillars",
+  "settings": [
+    { "type": "text", "id": "pillar_1_title", "label": "Pillar 1 title", "default": "Real Builds" },
+    { "type": "text", "id": "pillar_1_desc",  "label": "Pillar 1 description", "default": "Average cars, real mods, honest progress." },
+    { "type": "text", "id": "pillar_2_title", "label": "Pillar 2 title", "default": "Content" },
+    { "type": "text", "id": "pillar_2_desc",  "label": "Pillar 2 description", "default": "Videos and stories from behind the wheel." },
+    { "type": "text", "id": "pillar_3_title", "label": "Pillar 3 title", "default": "Merch" },
+    { "type": "text", "id": "pillar_3_desc",  "label": "Pillar 3 description", "default": "Wear the brand. Fund the content." },
+    { "type": "text", "id": "pillar_4_title", "label": "Pillar 4 title", "default": "Community" },
+    { "type": "text", "id": "pillar_4_desc",  "label": "Pillar 4 description", "default": "For enthusiasts who actually drive their cars." }
+  ],
+  "presets": [{ "name": "Brand Pillars" }]
+}
+{% endschema %}
