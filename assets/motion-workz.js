@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  // ── Navbar scroll ──────────────────────────────────────────────────────
+  // ── Navbar scroll ─────────────────────────────────────────────────
   var navbar = document.getElementById('navbar');
   function updateNavbar() {
     if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
@@ -10,7 +10,7 @@
   window.addEventListener('scroll', updateNavbar, { passive: true });
   updateNavbar();
 
-  // ── Mobile hamburger ───────────────────────────────────────────────
+  // ── Mobile hamburger ───────────────────────────────────────────
   var hamburger = document.getElementById('hamburger');
   var navLinks  = document.getElementById('navLinks');
   if (hamburger && navLinks) {
@@ -28,7 +28,7 @@
     });
   }
 
-  // ── Scroll-reveal ──────────────────────────────────────────────────
+  // ── Scroll-reveal ─────────────────────────────────────────────
   var reveals = document.querySelectorAll('.product-card, .build-series, .pillar, .about-text, .about-car');
   if ('IntersectionObserver' in window && reveals.length) {
     var rvStyle = document.createElement('style');
@@ -49,7 +49,7 @@
     });
   }
 
-  // ── Product page: thumbnail gallery ───────────────────────────────
+  // ── Product page: thumbnail gallery ───────────────────────────
   var mainImg   = document.getElementById('mainProductImg');
   var thumbBtns = document.querySelectorAll('.thumb-btn');
   if (mainImg && thumbBtns.length) {
@@ -63,7 +63,7 @@
     });
   }
 
-  // ── Product page: variant selector ────────────────────────────────
+  // ── Product page: variant selector ────────────────────────────
   var variantSelect = document.getElementById('variantSelect');
   var priceEl       = document.getElementById('productPrice');
   var addBtn        = document.getElementById('addToCartBtn');
@@ -110,14 +110,14 @@
     });
   }
 
-  // ── Product page: AJAX add to cart ───────────────────────────────
+  // ── Product page: AJAX add to cart ───────────────────────────
   var productForm = document.getElementById('productForm');
   if (productForm) {
     productForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var btn    = document.getElementById('addToCartBtn');
-      var msg    = document.getElementById('cartMsg');
-      var idEl   = variantSelect || productForm.querySelector('[name="id"]');
+      var btn  = document.getElementById('addToCartBtn');
+      var msg  = document.getElementById('cartMsg');
+      var idEl = variantSelect || productForm.querySelector('[name="id"]');
       if (!idEl || !idEl.value) return;
 
       btn.textContent = 'Adding...';
@@ -148,5 +148,37 @@
       });
     });
   }
+
+  // ── Cart page: AJAX quantity update & remove ────────────────────
+  function updateCartItem(key, qty) {
+    fetch('/cart/change.js', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body:    JSON.stringify({ id: key, quantity: qty })
+    })
+    .then(function (res) { return res.json(); })
+    .then(function () { window.location.reload(); })
+    .catch(function () { window.location.reload(); });
+  }
+
+  // Quantity buttons
+  document.querySelectorAll('.qty-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.dataset.key;
+      var qty = parseInt(btn.dataset.qty, 10);
+      if (isNaN(qty)) return;
+      btn.disabled = true;
+      updateCartItem(key, qty);
+    });
+  });
+
+  // Remove buttons
+  document.querySelectorAll('.cart-remove').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.dataset.key;
+      btn.disabled = true;
+      updateCartItem(key, 0);
+    });
+  });
 
 })();
