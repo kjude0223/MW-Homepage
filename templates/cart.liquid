@@ -1,0 +1,80 @@
+<div class="cart-page">
+  <div class="section-inner">
+
+    {%- if cart.item_count > 0 -%}
+
+      <p class="section-label">Your Cart</p>
+      <h1 class="section-title">Ready to <span class="red">Check Out?</span></h1>
+
+      <form action="/cart" method="post" id="cartForm">
+
+        <div class="cart-items">
+          {%- for item in cart.items -%}
+            <div class="cart-item" data-key="{{ item.key }}">
+
+              <div class="cart-item-img">
+                {%- if item.image -%}
+                  <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.image.alt | escape }}" />
+                {%- else -%}
+                  <div class="product-img-placeholder tee-bg" style="width:100%;height:100%;"></div>
+                {%- endif -%}
+              </div>
+
+              <div class="cart-item-details">
+                <a href="{{ item.url }}" class="cart-item-title">{{ item.product_title }}</a>
+                {%- unless item.variant_title == 'Default Title' -%}
+                  <p class="cart-item-variant">{{ item.variant_title }}</p>
+                {%- endunless -%}
+                <p class="cart-item-price">{{ item.price | money }} each</p>
+              </div>
+
+              <div class="cart-item-qty">
+                <button type="button" class="qty-btn" data-key="{{ item.key }}" data-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease">&#8722;</button>
+                <span class="qty-val">{{ item.quantity }}</span>
+                <button type="button" class="qty-btn" data-key="{{ item.key }}" data-qty="{{ item.quantity | plus: 1 }}" aria-label="Increase">&#43;</button>
+              </div>
+
+              <div class="cart-item-line">
+                <span class="cart-item-line-price">{{ item.line_price | money }}</span>
+                <button type="button" class="cart-remove" data-key="{{ item.key }}" aria-label="Remove item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="cart-footer">
+          <div class="cart-total-row">
+            <span class="cart-total-label">Subtotal</span>
+            <span class="cart-total-price" id="cartTotal">{{ cart.total_price | money }}</span>
+          </div>
+          <p class="cart-shipping-note">Shipping and taxes calculated at checkout.</p>
+          <div class="cart-actions">
+            <button type="submit" name="checkout" class="btn btn-red btn-lg">Proceed to Checkout</button>
+            <a href="/collections/all" class="btn btn-outline btn-lg">Continue Shopping</a>
+          </div>
+        </div>
+
+      </form>
+
+    {%- else -%}
+
+      <div class="cart-empty">
+        <div class="cart-empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 8h6l6 32h28l6-20H20"/>
+            <circle cx="26" cy="52" r="3"/>
+            <circle cx="44" cy="52" r="3"/>
+          </svg>
+        </div>
+        <h1 class="section-title" style="margin-bottom:12px;">Your Cart is <span class="red">Empty</span></h1>
+        <p style="color:var(--text-muted);margin-bottom:36px;">Nothing here yet. Go find something worth wearing.</p>
+        <a href="/collections/all" class="btn btn-red btn-lg">Shop the Drop</a>
+      </div>
+
+    {%- endif -%}
+
+  </div>
+</div>
