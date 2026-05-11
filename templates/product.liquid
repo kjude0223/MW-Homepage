@@ -1,25 +1,99 @@
-<div class="section-inner" style="padding-top:120px;padding-bottom:80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
-  <div class="product-media">
-    {%- if product.featured_image -%}
-      <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | escape }}" style="width:100%;border-radius:10px;" />
-    {%- else -%}
-      <div class="product-img-placeholder tee-bg" style="aspect-ratio:1;border-radius:10px;"></div>
-    {%- endif -%}
-  </div>
-  <div class="product-details">
-    <p class="product-cat">{{ product.type }}</p>
-    <h1 class="product-name" style="font-size:2.4rem;margin-bottom:16px;">{{ product.title }}</h1>
-    <p class="product-price" style="font-size:2rem;margin-bottom:24px;">{{ product.price | money }}</p>
-    <div style="color:#888;margin-bottom:32px;line-height:1.7;">{{ product.description }}</div>
-    {%- form 'product', product -%}
-      <select name="id" style="width:100%;padding:12px;background:#181818;border:1px solid rgba(255,255,255,0.1);color:#E8E8E8;border-radius:6px;margin-bottom:16px;font-family:inherit;">
-        {%- for variant in product.variants -%}
-          <option value="{{ variant.id }}" {% if variant.available == false %}disabled{% endif %}>
-            {{ variant.title }} — {{ variant.price | money }}
-          </option>
-        {%- endfor -%}
-      </select>
-      <button type="submit" name="add" class="btn btn-red btn-lg" style="width:100%;">Add to Cart</button>
-    {%- endform -%}
+<div class="product-page">
+  <div class="section-inner product-layout">
+
+    <!-- Image Gallery -->
+    <div class="product-gallery">
+      <div class="product-main-image">
+        {%- if product.featured_image -%}
+          <img
+            src="{{ product.featured_image | image_url: width: 900 }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            id="mainProductImg" />
+        {%- else -%}
+          <div class="product-img-placeholder tee-bg" style="aspect-ratio:1;"></div>
+        {%- endif -%}
+      </div>
+      {%- if product.images.size > 1 -%}
+        <div class="product-thumbs">
+          {%- for image in product.images limit: 8 -%}
+            <button
+              class="thumb-btn{% if forloop.first %} active{% endif %}"
+              data-src="{{ image | image_url: width: 900 }}"
+              data-alt="{{ image.alt | escape }}"
+              aria-label="View image {{ forloop.index }}">
+              <img src="{{ image | image_url: width: 120 }}" alt="{{ image.alt | escape }}" loading="lazy" />
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Details -->
+    <div class="product-details">
+      <p class="product-cat">{{ product.type | default: 'Motion Workz' }}</p>
+      <h1 class="product-name product-page-title">{{ product.title }}</h1>
+      <p class="product-price product-page-price" id="productPrice">{{ product.price | money }}</p>
+
+      <div class="product-description">
+        {%- render 'product-description', product: product -%}
+      </div>
+
+      {%- form 'product', product, id: 'productForm' -%}
+
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="variant-group">
+              <p class="variant-label">{{ option.name }}</p>
+              <div class="variant-options" data-option-index="{{ forloop.index0 }}">
+                {%- for value in option.values -%}
+                  <button
+                    type="button"
+                    class="variant-btn{% if forloop.first %} selected{% endif %}"
+                    data-value="{{ value | escape }}"
+                    data-option-index="{{ forloop.parentloop.index0 }}">
+                    {{ value }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+
+          <select name="id" id="variantSelect" aria-label="Product variant" style="display:none;">
+            {%- for variant in product.variants -%}
+              <option
+                value="{{ variant.id }}"
+                data-price="{{ variant.price | money }}"
+                {% unless variant.available %}disabled{% endunless %}>
+                {{ variant.title }}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- else -%}
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        {%- endunless -%}
+
+        <button
+          type="submit" name="add" id="addToCartBtn"
+          class="btn btn-red btn-lg"
+          style="width:100%;margin-top:8px;"
+          {%- unless product.available %} disabled{%- endunless -%}>
+          {%- if product.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+        </button>
+
+        <p id="cartMsg" aria-live="polite" class="cart-msg" style="display:none;"></p>
+
+      {%- endform -%}
+
+      <div class="product-care-strip">
+        <span>Machine wash cold</span>
+        <span class="care-dot">&middot;</span>
+        <span>Tumble dry low</span>
+        <span class="care-dot">&middot;</span>
+        <span>No bleach</span>
+        <span class="care-dot">&middot;</span>
+        <span>Medium iron</span>
+      </div>
+    </div>
+
   </div>
 </div>
