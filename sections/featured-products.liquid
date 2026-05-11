@@ -7,7 +7,7 @@
     <div class="product-grid">
       {%- if section.settings.collection != blank -%}
         {%- assign col = collections[section.settings.collection] -%}
-        {%- for product in col.products limit: 3 -%}
+        {%- for product in col.products limit: 9 -%}
           <div class="product-card">
             <a href="{{ product.url }}">
               <div class="product-img-wrap">

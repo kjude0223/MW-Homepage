@@ -26,7 +26,8 @@
       "type": "featured-products",
       "settings": {
         "heading": "Gear Up.",
-        "subheading": "Every purchase fuels the next build, the next video, and the journey to the GT-R. Wear the brand. Support the mission. Keep it moving."
+        "subheading": "Every purchase fuels the next build, the next video, and the journey to the GT-R. Wear the brand. Support the mission. Keep it moving.",
+        "collection": "all"
       }
     },
     "builds": {
