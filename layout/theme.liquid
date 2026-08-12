@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    {%- if template == 'index' -%}Motion Workz – The Journey Is the Build.
+    {%- if template == 'index' -%}Motion Workz – One Culture, Every Lane.
     {%- else -%}{{ page_title }} – {{ shop.name }}
     {%- endif -%}
   </title>
-  <meta name="description" content="{{ page_description | default: 'Motion Workz — JDM & import lifestyle brand from Georgia. Real builds, real roads. Merch funds the mission.' | escape }}" />
+  <meta name="description" content="{{ page_description | default: 'Motion Workz — real builds, real drivers, every lane. Import, Euro, truck, muscle — if you built it and you drive it, you belong here.' | escape }}" />
   {{ content_for_header }}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
   {{ 'motion-workz.css' | asset_url | stylesheet_tag }}
 </head>
 <body>
@@ -23,12 +23,13 @@
         <span class="logo-motion">MOTION</span><span class="logo-workz">WORKZ</span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="{{ routes.root_url }}">Home</a>
-        <a href="/collections/all">Shop</a>
+        <a href="#lanes">Lanes</a>
         <a href="/pages/builds">Builds</a>
+        <a href="/collections/all">Shop</a>
         <a href="/pages/about">About</a>
+        <a href="/pages/content">Content</a>
       </nav>
-      <a href="/collections/all" class="btn btn-red nav-cta">Shop the Drop</a>
+      <a href="/collections/all" class="btn btn-red nav-cta btn-skew"><span>Shop the Tee</span></a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -46,13 +47,14 @@
           <span class="logo-motion">MOTION</span><span class="logo-workz">WORKZ</span>
         </a>
         <p class="footer-tagline">The Journey Is the Build.</p>
-        <p class="footer-location">JDM &amp; Import Lifestyle &nbsp;&middot;&nbsp; Georgia</p>
+        <p class="footer-location">One Culture, Every Lane &nbsp;&middot;&nbsp; Georgia</p>
       </div>
       <nav class="footer-links">
-        <a href="{{ routes.root_url }}">Home</a>
-        <a href="/collections/all">Shop</a>
+        <a href="#lanes">Lanes</a>
         <a href="/pages/builds">Builds</a>
+        <a href="/collections/all">Shop</a>
         <a href="/pages/about">About</a>
+        <a href="/pages/content">Content</a>
       </nav>
       <div class="footer-social">
         {%- if settings.social_youtube_url != blank -%}
