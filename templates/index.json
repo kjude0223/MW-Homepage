@@ -3,30 +3,43 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "JDM · Import · Lifestyle",
+        "eyebrow": "Import Lane · Open to Every Lane",
         "headline": "The Journey Is the Build.",
-        "subheadline": "Not every build needs to sit in a parking lot. Motion Workz is for the everyday enthusiast — real cars, real roads, real culture.",
-        "cta_primary_text": "Shop the Drop",
+        "mission_line": "One Culture, Every Lane",
+        "subheadline": "Car culture shouldn’t be siloed. Motion Workz brings it all under one roof — import, Euro, exotics, trucks, muscle — united by people who’d rather drive their build than let it collect dust.",
+        "cta_primary_text": "Shop the Tee",
         "cta_primary_url": "/collections/all",
-        "cta_secondary_text": "Watch Our Builds",
-        "cta_secondary_url": "/pages/builds"
+        "cta_secondary_text": "See the Builds",
+        "cta_secondary_url": "#builds"
       }
+    },
+    "fracture": {
+      "type": "fracture-divider",
+      "settings": {}
+    },
+    "lanes": {
+      "type": "lane-strip",
+      "settings": {}
+    },
+    "stats": {
+      "type": "stat-bar",
+      "settings": {}
+    },
+    "featured_builds": {
+      "type": "featured-builds",
+      "settings": {}
     },
     "marquee": {
       "type": "marquee-strip",
       "settings": {
-        "text": "JDM Lifestyle | Real Builds | Import Scene | Georgia Car Culture | Driven Not Trailered | The Journey Is the Build"
+        "text": "One Culture, Every Lane | Import Lane | Submit Your Build | Real Builds, Real Drivers | Driven Not Parked | The Journey Is the Build"
       }
-    },
-    "pillars": {
-      "type": "brand-pillars",
-      "settings": {}
     },
     "products": {
       "type": "featured-products",
       "settings": {
-        "heading": "Gear Up.",
-        "subheading": "Every purchase fuels the next build, the next video, and the journey to the GT-R. Wear the brand. Support the mission. Keep it moving.",
+        "heading": "Shop the Tee.",
+        "subheading": "Wear the brand. Fund the mission. Every purchase helps document the next build.",
         "collection": "all"
       }
     },
@@ -41,9 +54,9 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "First Access to Every Drop"
+        "heading": "Join the Crew"
       }
     }
   },
-  "order": ["hero", "marquee", "pillars", "products", "builds", "about", "newsletter"]
+  "order": ["hero", "fracture", "lanes", "stats", "featured_builds", "marquee", "products", "builds", "about", "newsletter"]
 }
