@@ -1,0 +1,255 @@
+/* About / Mission page styles */
+
+.about-page-hero {
+  padding-top: calc(var(--nav-h) + 80px);
+  padding-bottom: 80px;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(204,17,17,0.09) 0%, transparent 70%), var(--black);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.about-page-title {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  -webkit-text-stroke: 2px var(--silver-light);
+  color: transparent;
+  line-height: 0.95;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.about-page-tagline {
+  font-family: var(--font-head);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+/* Story */
+.about-story {
+  padding: 80px 0 60px;
+  background: var(--black);
+}
+
+.about-story-body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-story-heading {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--silver-light);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-story-body p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 22px;
+}
+
+.about-story-body em {
+  font-style: italic;
+  color: var(--silver-light);
+}
+
+.about-story-body strong {
+  color: var(--silver-light);
+}
+
+.about-emphasis {
+  background: var(--surface);
+  border-left: 3px solid var(--red);
+  padding: 20px 24px;
+  border-radius: 0 6px 6px 0;
+  margin: 32px 0 !important;
+}
+
+.about-mission-statement {
+  font-family: var(--font-head);
+  font-size: 1.4rem !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--silver-light) !important;
+  letter-spacing: 0.04em;
+  margin: 32px 0 20px !important;
+}
+
+.about-steps {
+  list-style: none;
+  counter-reset: steps;
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-steps li {
+  counter-increment: steps;
+  background: var(--surface-2);
+  padding: 20px 24px 20px 72px;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  transition: background 0.25s ease;
+}
+
+.about-steps li:hover { background: var(--surface-3); }
+
+.about-steps li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  opacity: 0.35;
+  border-right: 1px solid var(--border);
+  transition: opacity 0.25s ease;
+}
+
+.about-steps li:hover::before { opacity: 0.8; }
+
+.about-steps li strong {
+  color: var(--silver-light);
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.about-sign-off {
+  font-family: var(--font-head);
+  font-size: 1.2rem !important;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--silver-light) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 32px !important;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+/* What We Stand For */
+.about-pillars-section {
+  padding: 80px 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-pillars-section .section-title {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-pillar {
+  background: var(--surface-2);
+  padding: 36px 32px;
+  transition: background 0.25s ease;
+}
+
+.about-pillar:hover { background: var(--surface-3); }
+
+.about-pillar-title {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--silver-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.about-pillar-title::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  transform: skewX(-6deg);
+  margin-right: 10px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.about-pillar-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Closing CTA */
+.about-cta-section {
+  padding: 80px 0;
+  background: var(--black);
+}
+
+.about-cta-inner {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-cta-copy {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.about-cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .about-page-hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 52px; }
+  .about-pillars-grid { grid-template-columns: 1fr; }
+  .about-steps li { padding-left: 60px; }
+  .about-cta-actions { flex-direction: column; align-items: center; }
+  .about-cta-actions .btn { width: 100%; max-width: 360px; text-align: center; }
+}
