@@ -1,0 +1,136 @@
+/* Submit Your Build page */
+
+.submit-page-hero {
+  padding-top: calc(var(--nav-h) + 72px);
+  padding-bottom: 64px;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(204,17,17,0.09) 0%, transparent 70%), var(--black);
+  border-bottom: 1px solid var(--border);
+}
+
+.submit-page-title {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  -webkit-text-stroke: 2px var(--silver-light);
+  color: transparent;
+  line-height: 0.95;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.submit-page-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.submit-page-form-wrap {
+  padding: 72px 0 100px;
+  background: var(--black);
+}
+
+.submit-form-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 48px;
+}
+
+.submit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-field-full { grid-column: 1 / -1; }
+
+.form-label {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.req { color: var(--red); }
+
+.form-input {
+  background: var(--surface-3);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  color: var(--silver-light);
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+}
+
+.form-input::placeholder { color: var(--text-muted); opacity: 0.6; }
+.form-input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(204,17,17,0.18); }
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+.form-textarea { resize: vertical; min-height: 140px; }
+
+.form-actions { display: flex; flex-direction: column; gap: 12px; padding-top: 8px; }
+.form-note { font-size: 0.82rem; color: var(--text-muted); }
+
+/* Errors */
+.submit-errors {
+  background: rgba(204,17,17,0.1);
+  border: 1px solid rgba(204,17,17,0.3);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: var(--silver-light);
+}
+.submit-errors ul { padding-left: 18px; margin-top: 8px; }
+.submit-errors li { margin-bottom: 4px; color: var(--text-muted); }
+
+/* Success state */
+.submit-success {
+  text-align: center;
+  padding: 48px 24px;
+}
+.submit-success-icon {
+  font-size: 3rem;
+  color: #4cce70;
+  margin-bottom: 16px;
+}
+.submit-success-heading {
+  font-family: var(--font-head);
+  font-size: 2.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--silver-light);
+  margin-bottom: 12px;
+}
+.submit-success-copy {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 680px) {
+  .submit-form-card { padding: 28px 20px; }
+  .submit-form-grid { grid-template-columns: 1fr; }
+  .form-field-full { grid-column: 1; }
+}

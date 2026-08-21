@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-submit-build",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

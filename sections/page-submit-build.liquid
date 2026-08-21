@@ -1,0 +1,98 @@
+<div class="submit-page">
+
+  <div class="submit-page-hero">
+    <div class="section-inner" style="text-align:center;">
+      <p class="section-label">Every Lane</p>
+      <h1 class="submit-page-title">Submit<br />Your Build.</h1>
+      <p class="submit-page-sub">Import, Euro, exotic, truck, muscle — if you built it and you drive it, this lane is yours. Tell us about it.</p>
+    </div>
+  </div>
+
+  <div class="submit-page-form-wrap">
+    <div class="section-inner">
+      <div class="submit-form-card">
+
+        {%- form 'contact' -%}
+
+          {%- if form.posted_successfully? -%}
+            <div class="submit-success">
+              <p class="submit-success-icon">&#10003;</p>
+              <h2 class="submit-success-heading">Build Received.</h2>
+              <p class="submit-success-copy">We’ll be in touch. Your build is part of the record now.</p>
+              <a href="/" class="btn btn-outline" style="margin-top:24px;">Back to Home</a>
+            </div>
+          {%- else -%}
+
+            {%- if form.errors -%}
+              <div class="submit-errors">
+                <p>Please fix the following before submitting:</p>
+                <ul>
+                  {%- for field in form.errors -%}
+                    <li>{{ field | capitalize }}: {{ form.errors.messages[field] }}</li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            <div class="submit-form-grid">
+
+              <div class="form-field">
+                <label class="form-label" for="contact-name">Your Name <span class="req">*</span></label>
+                <input class="form-input" type="text" id="contact-name" name="contact[name]" placeholder="First and last" required />
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="contact-email">Email <span class="req">*</span></label>
+                <input class="form-input" type="email" id="contact-email" name="contact[email]" placeholder="you@example.com" required />
+              </div>
+
+              <div class="form-field form-field-full">
+                <label class="form-label" for="contact-car">Your Car <span class="req">*</span></label>
+                <input class="form-input" type="text" id="contact-car" name="contact[body][car]" placeholder="Year / Make / Model (e.g. 1999 Nissan Skyline GT-T)" required />
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="contact-lane">Lane <span class="req">*</span></label>
+                <select class="form-input form-select" id="contact-lane" name="contact[body][lane]" required>
+                  <option value="" disabled selected>Select your lane</option>
+                  <option value="Import">Import (JDM / Euro)</option>
+                  <option value="Truck & Muscle">Truck &amp; Muscle</option>
+                  <option value="Exotic">Exotic</option>
+                  <option value="Other">Other — just drive it</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="contact-ig">Instagram / Social Handle</label>
+                <input class="form-input" type="text" id="contact-ig" name="contact[body][social]" placeholder="@yourhandle (optional)" />
+              </div>
+
+              <div class="form-field form-field-full">
+                <label class="form-label" for="contact-body">Tell Us About Your Build <span class="req">*</span></label>
+                <textarea class="form-input form-textarea" id="contact-body" name="contact[body][story]" placeholder="What are you building? Where is it at right now? What makes it yours?" rows="6" required></textarea>
+              </div>
+
+              <div class="form-field form-field-full form-actions">
+                <button type="submit" class="btn btn-red btn-lg btn-skew"><span>Submit Your Build</span></button>
+                <p class="form-note">We read every submission. No spam, no gatekeeping.</p>
+              </div>
+
+            </div>
+
+          {%- endif -%}
+
+        {%- endform -%}
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Submit Your Build",
+  "settings": [],
+  "presets": [{ "name": "Submit Your Build" }]
+}
+{% endschema %}
