@@ -17,6 +17,9 @@
   {%- if template == 'page.about' -%}
     {{ 'about-page.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
+  {%- if template == 'page.submit-build' -%}
+    {{ 'submit-page.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 </head>
 <body>
 
