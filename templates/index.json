@@ -17,10 +17,6 @@
       "type": "fracture-divider",
       "settings": {}
     },
-    "lanes": {
-      "type": "lane-strip",
-      "settings": {}
-    },
     "stats": {
       "type": "stat-bar",
       "settings": {}
@@ -58,5 +54,5 @@
       }
     }
   },
-  "order": ["hero", "fracture", "lanes", "stats", "featured_builds", "marquee", "products", "builds", "about", "newsletter"]
+  "order": ["hero", "fracture", "stats", "featured_builds", "marquee", "products", "builds", "about", "newsletter"]
 }
